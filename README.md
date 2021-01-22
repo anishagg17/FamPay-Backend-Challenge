@@ -13,3 +13,6 @@
 ### Local Installation
 
 - Run `git clone https://github.com/anishagg17/FamPay-Backend-Challenge`
+- `cd FamPay-Backend-Challenge`
+- `npm i`
+- `npm start`
