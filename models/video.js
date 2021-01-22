@@ -5,17 +5,17 @@ const Schema = mongoose.Schema;
 const VideoSchema = new Schema({
   title: {
     type: String,
-    required: true
+    required: true,
   },
   description: {
-    type: String
+    type: String,
   },
   img: {
-    type: String
+    type: String,
   },
   date: {
     type: Date,
-  }
+  },
 });
 
 VideoSchema.index({ date: -1 });
