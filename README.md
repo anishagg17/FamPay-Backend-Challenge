@@ -9,6 +9,7 @@
 
 - `db.js : It contains code to establish connection to the dataBase`
 - `main.js : It consists of an express server application which routes to different controllers and is responsible for running the application.`
+- `models : It consists of definition of videos, whose shema are defined using mongoose-Schema . Attributes may be of type: String, Date, etc. Some attributes have been marked as required.`
 
 ### Local Installation
 
