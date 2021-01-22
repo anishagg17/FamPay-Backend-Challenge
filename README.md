@@ -21,3 +21,6 @@
 Use `npm run start:dev` to watch-out for code changes and hot-reload.
 
 Use `npm run format` to pretify the code.
+
+Paste environment variables in `.env` file according to structure of `demo.env`.
+
