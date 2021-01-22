@@ -19,4 +19,5 @@
 - make `GET` request to `http://localhost:5000/`
 
 Use `npm run start:dev` to watch-out for code changes and hot-reload.
+
 Use `npm run format` to pretify the code.
