@@ -11,8 +11,12 @@ const app = express();
 const baseUrl="https://www.googleapis.com/youtube/v3/search";
 if(!process.env.YouTubeAPIs)        console.log('No keys found');
 const keys=process.env.YouTubeAPIs && process.env.YouTubeAPIs.split(" ");
-let counter=0;
 
+// Variables for paginating, switching keys
+let counter=0,page=0;
+const perPage=2;
+
+// Asynchronous function for fetching videos and storing it in database.
 const populateInterval = setInterval(async ()=>{
     try {
         if(!keys)        throw Error('No keys found');
@@ -53,14 +57,20 @@ const populateInterval = setInterval(async ()=>{
     }
 }, 10000);
 
+// End-point to stop fetching videos from YouTube API.
 app.get("/stop_populate", (req, res) => {
     clearInterval(populateInterval);
     res.status(200).send('stopped populating');
 });
 
+// End-point to get fetched videos from DataBase.
 app.get("/", async (req, res) => {
     try {
-        const videos = await Video.find().sort({ date: -1 });
+        const videos = await Video.find()    
+                            .limit(perPage)
+                            .skip(perPage * page)
+                            .sort({ date: -1 });
+        page++;
         res.json(videos);
     } catch (err) {
         console.error(err);

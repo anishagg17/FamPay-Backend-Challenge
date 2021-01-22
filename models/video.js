@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+// Schema, design of the structure of `Video` type.
 const VideoSchema = new Schema({
   title: {
     type: String,
